@@ -7,7 +7,7 @@
 
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
 
-Type annotations and code completion for [boto3](https://pypi.org/project/boto3/) package.
+Type annotations and code completion for [aiobotocore](https://pypi.org/project/aiobotocore/) package.
 This package is a part of [mypy_boto3_builder](https://github.com/youtype/mypy_boto3_builder) project.
 
 [![Publish types-aiobotocore-lite](https://github.com/youtype/types-aiobotocore/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-aiobotocore/actions/workflows/publish_on_update.yml)
