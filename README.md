@@ -3,6 +3,7 @@
 [![PyPI - types-aiobotocore](https://img.shields.io/pypi/v/types-aiobotocore.svg?color=blue&label=types-aiobotocore)](https://pypi.org/project/types-aiobotocore)
 [![PyPI - aiobotocore](https://img.shields.io/pypi/v/aiobotocore.svg?color=blue&label=aiobotocore)](https://pypi.org/project/aiobotocore)
 [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/types-aiobotocore.svg?color=blue)](https://pypi.org/project/types-aiobotocore)
+[![Publish types-aiobotocore](https://github.com/youtype/types-aiobotocore/actions/workflows/publish_on_update.yml/badge.svg)](https://github.com/youtype/types-aiobotocore/actions/workflows/publish_on_update.yml)
 [![PyPI - Downloads](https://static.pepy.tech/badge/types-aiobotocore)](https://pepy.tech/project/types-aiobotocore)
 
 ![boto3.typed](https://github.com/youtype/mypy_boto3_builder/raw/main/logo.png)
