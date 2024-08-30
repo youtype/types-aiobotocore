@@ -1,0 +1,4 @@
+include aiobotocore-stubs/py.typed
+include aiobotocore-stubs/*.pyi
+include aiobotocore-stubs/*/*.pyi
+include aiobotocore-stubs/*/*/*.pyi
