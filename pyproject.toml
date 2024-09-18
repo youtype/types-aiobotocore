@@ -31,10 +31,8 @@ dependencies = ["typing-extensions>=4.1.0; python_version<'3.9'"]
 config-settings = { editable-mode = "strict" }
 dev-dependencies = [
     "setuptools",
-    "pre-commit",
     "aiobotocore",
     "mypy",
-    "ruff",
     "pyright",
     "istub",
     "botocore-stubs",
