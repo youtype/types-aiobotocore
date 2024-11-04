@@ -195,15 +195,15 @@ wheels = [
 
 [[package]]
 name = "botocore-stubs"
-version = "1.35.53"
+version = "1.35.54"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "types-awscrt" },
     { name = "typing-extensions", marker = "python_full_version < '3.9'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/2f/dc/b4f7de0b3dae8087e7ce4e2877beedcdf4d6bf702d33b5deb4b3fa3fce65/botocore_stubs-1.35.53.tar.gz", hash = "sha256:ba85b7f233527abfb60fae3e121519e5b748b0486756a0d4cfccfcc3dd47e649", size = 40579 }
+sdist = { url = "https://files.pythonhosted.org/packages/a2/5a/423c6c6db4e4cb5c8bdbc63d91d0099ba13e612adafe516e9c92bc233e08/botocore_stubs-1.35.54.tar.gz", hash = "sha256:49e28813324308bfc5a92bde118df5c9c41a01237eef1e1628891770f3f68a94", size = 40572 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e9/1f/15ea0badb9955614d50d0c5f8cf23212c53c654eea526094c9136322d757/botocore_stubs-1.35.53-py3-none-any.whl", hash = "sha256:09c65f0dd2a91a6d9915bca483d14645efdf0d267971fcedd0d87d474d66071b", size = 60136 },
+    { url = "https://files.pythonhosted.org/packages/d9/b8/179e6b219f7e4a19bbbe6b00a5b81531ef384e6d8911891a0d7910d6b4fc/botocore_stubs-1.35.54-py3-none-any.whl", hash = "sha256:26ba65907eed959dddc644ab1cd72e3a2cc9761dad79e0b45ff3b8676c47e5ec", size = 60137 },
 ]
 
 [[package]]
