@@ -94,25 +94,28 @@ indent-width = 4
 target-version = "py38"
 
 [tool.ruff.lint]
+preview = true
 select = [
-    "E4",
-    "E7",
-    "E9",
-    "F",
-    "B",
-    "I",
-    "N",
-    "D",
-    "C4",
-    "C90",
-    "RUF",
-    "PYI",
-    "UP",
+    "E",   # pycodestyle
+    "F",   # pyflakes
+    "B",   # flake8-bugbear
+    "I",   # isort
+    "N",   # pep8-naming
+    "C4",  # flake8-comprehensions
+    "C90", # mccabe
+    "RUF", # ruff
+    "PYI", # flake8-pyi
+    "UP",  # pyupgrade
+    "CPY", # flake8-copyright
 ]
 fixable = ["ALL"]
 unfixable = ["B"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
 exclude = ["test_*.py", "*.pyi"]
+ignore = [
+    "N803",   # invalid-argument-name
+    "PYI021", # docstring-in-stub
+]
 
 [tool.ruff.format]
 quote-style = "double"
