@@ -1,3 +1,7 @@
+"""
+Copyright 2024 Vlad Emelianov
+"""
+
 import datetime
 from logging import Logger
 from typing import Any, Callable

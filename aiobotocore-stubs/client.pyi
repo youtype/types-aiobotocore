@@ -1,15 +1,18 @@
+"""
+Copyright 2024 Vlad Emelianov
+"""
+
 from types import TracebackType
-from typing import Any, Optional, Type, TypeVar, Union
+from typing import Any
 
 from aiobotocore.paginate import AioPaginator
 from aiobotocore.waiter import AIOWaiter
 from botocore.client import BaseClient, ClientCreator
 from botocore.config import Config
 from botocore.history import HistoryRecorder
+from typing_extensions import Self
 
 history_recorder: HistoryRecorder
-
-_R = TypeVar("_R")
 
 class AioClientCreator(ClientCreator):
     async def create_client(  # type: ignore [override]
@@ -17,23 +20,23 @@ class AioClientCreator(ClientCreator):
         service_name: str,
         region_name: str,
         is_secure: bool = ...,
-        endpoint_url: Optional[str] = ...,
-        verify: Optional[Union[str, bool]] = ...,
-        credentials: Optional[Any] = ...,
-        scoped_config: Optional[Any] = ...,
-        api_version: Optional[str] = ...,
-        client_config: Optional[Config] = ...,
-        auth_token: Optional[str] = ...,
+        endpoint_url: str | None = ...,
+        verify: str | bool | None = ...,
+        credentials: Any | None = ...,
+        scoped_config: Any | None = ...,
+        api_version: str | None = ...,
+        client_config: Config | None = ...,
+        auth_token: str | None = ...,
     ) -> AioBaseClient: ...
 
 class AioBaseClient(BaseClient):
     def get_paginator(self, operation_name: str) -> AioPaginator: ...
     def get_waiter(self, waiter_name: str) -> AIOWaiter: ...
-    async def __aenter__(self: _R) -> _R: ...
+    async def __aenter__(self) -> Self: ...
     async def __aexit__(
         self,
-        exc_type: Optional[Type[BaseException]],
-        exc_val: Optional[BaseException],
-        tb: Optional[TracebackType],
+        exc_type: type[BaseException] | None,
+        exc_val: BaseException | None,
+        tb: TracebackType | None,
     ) -> Any: ...
     async def close(self) -> None: ...  # type: ignore [override]

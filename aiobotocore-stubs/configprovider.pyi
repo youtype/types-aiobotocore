@@ -1,3 +1,7 @@
+"""
+Copyright 2024 Vlad Emelianov
+"""
+
 from botocore.configprovider import ConfigValueStore, SmartDefaultsConfigStoreFactory
 
 class AioSmartDefaultsConfigStoreFactory(SmartDefaultsConfigStoreFactory):

@@ -1,3 +1,7 @@
+"""
+Copyright 2024 Vlad Emelianov
+"""
+
 from botocore.retries.bucket import Clock as Clock
 
 class AsyncTokenBucket:

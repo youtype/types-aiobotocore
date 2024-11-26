@@ -1,3 +1,7 @@
+"""
+Copyright 2024 Vlad Emelianov
+"""
+
 from botocore.awsrequest import AWSResponse
 
 class AioAWSResponse(AWSResponse):
