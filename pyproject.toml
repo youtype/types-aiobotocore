@@ -26,7 +26,6 @@ classifiers = [
     "Typing :: Stubs Only",
     "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-dependencies = ["typing-extensions>=4.1.0; python_version<'3.9'"]
 
 [tool.uv]
 config-settings = { editable-mode = "strict" }
@@ -58,6 +57,7 @@ packages = ["aiobotocore-stubs"]
 [tool.pyright]
 include = ["aiobotocore-stubs"]
 exclude = ["**/__pycache__", "tests", "typestubs"]
+ignore = ["test.py"]
 reportMissingImports = "error"
 reportMissingTypeStubs = false
 reportMissingTypeArgument = "error"
@@ -111,10 +111,14 @@ select = [
 fixable = ["ALL"]
 unfixable = ["B"]
 dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
-exclude = ["test_*.py", "*.pyi"]
+exclude = ["test_*.py"]
 ignore = [
     "N803",   # invalid-argument-name
+    "N818",   # error-suffix-on-exception-name
+    "PYI010", # non-empty-stub-body
+    "PYI019", # custom-type-var-return-type
     "PYI021", # docstring-in-stub
+    "PYI048", # stub-body-multiple-statements
 ]
 
 [tool.ruff.format]
@@ -124,3 +128,8 @@ skip-magic-trailing-comma = false
 line-ending = "auto"
 docstring-code-format = false
 docstring-code-line-length = "dynamic"
+
+[tool.ruff.lint.flake8-copyright]
+# author = "Vlad Emelianov"
+min-file-size = 200
+notice-rgx = "(?i)Copyright [0-9]{4}"
