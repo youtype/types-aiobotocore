@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.stub module.
+
 Copyright 2024 Vlad Emelianov
 """
 

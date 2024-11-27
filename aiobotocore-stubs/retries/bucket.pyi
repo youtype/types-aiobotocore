@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.retries.bucket module.
+
 Copyright 2024 Vlad Emelianov
 """
 

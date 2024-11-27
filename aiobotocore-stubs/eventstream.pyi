@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.eventstream module.
+
 Copyright 2024 Vlad Emelianov
 """
 

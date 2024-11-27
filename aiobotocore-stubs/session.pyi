@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.session module.
+
 Copyright 2024 Vlad Emelianov
 """
 

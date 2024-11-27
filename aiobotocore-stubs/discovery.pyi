@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.discovery module.
+
 Copyright 2024 Vlad Emelianov
 """
 

@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.client module.
+
 Copyright 2024 Vlad Emelianov
 """
 

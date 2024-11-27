@@ -1,4 +1,6 @@
 """
+Type annotations for aiobotocore.regions module.
+
 Copyright 2024 Vlad Emelianov
 """
 
