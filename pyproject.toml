@@ -58,6 +58,7 @@ packages = ["aiobotocore-stubs"]
 [tool.pyright]
 include = ["aiobotocore-stubs"]
 exclude = ["**/__pycache__", "tests", "typestubs"]
+ignore = ["test.py"]
 reportMissingImports = "error"
 reportMissingTypeStubs = false
 reportMissingTypeArgument = "error"
