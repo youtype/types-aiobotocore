@@ -5,11 +5,12 @@ Copyright 2024 Vlad Emelianov
 """
 
 from types import TracebackType
-from typing import Any
+from typing import Any, TypeVar
 
 from botocore.endpoint import MAX_POOL_CONNECTIONS as MAX_POOL_CONNECTIONS
 from requests.models import Request, Response
-from typing_extensions import Self
+
+_R = TypeVar("_R")
 
 class AIOHTTPSession:
     def __init__(
@@ -23,7 +24,7 @@ class AIOHTTPSession:
         proxies_config: Any | None = ...,
         connector_args: Any | None = ...,
     ) -> None: ...
-    async def __aenter__(self) -> Self: ...
+    async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
         exc_type: type[BaseException] | None,

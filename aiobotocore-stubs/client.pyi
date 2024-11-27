@@ -5,14 +5,15 @@ Copyright 2024 Vlad Emelianov
 """
 
 from types import TracebackType
-from typing import Any
+from typing import Any, TypeVar
 
 from aiobotocore.paginate import AioPaginator
 from aiobotocore.waiter import AIOWaiter
 from botocore.client import BaseClient, ClientCreator
 from botocore.config import Config
 from botocore.history import HistoryRecorder
-from typing_extensions import Self
+
+_R = TypeVar("_R")
 
 history_recorder: HistoryRecorder
 
@@ -34,7 +35,7 @@ class AioClientCreator(ClientCreator):
 class AioBaseClient(BaseClient):
     def get_paginator(self, operation_name: str) -> AioPaginator: ...
     def get_waiter(self, waiter_name: str) -> AIOWaiter: ...
-    async def __aenter__(self) -> Self: ...
+    async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
         exc_type: type[BaseException] | None,

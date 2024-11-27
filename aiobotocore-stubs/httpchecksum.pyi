@@ -4,18 +4,19 @@ Type annotations for aiobotocore.httpchecksum module.
 Copyright 2024 Vlad Emelianov
 """
 
-from typing import Any, Mapping
+from typing import Any, Mapping, TypeVar
 
 from aiobotocore.response import StreamingBody
 from aiohttp import StreamReader
 from botocore.awsrequest import AWSHTTPResponse, AWSRequest
 from botocore.httpchecksum import AwsChunkedWrapper, BaseChecksum
 from botocore.model import OperationModel
-from typing_extensions import Self
+
+_R = TypeVar("_R")
 
 class AioAwsChunkedWrapper(AwsChunkedWrapper):
     async def _make_chunk(self) -> bytes: ...
-    def __aiter__(self) -> Self: ...
+    def __aiter__(self: _R) -> _R: ...
     async def __anext__(self) -> bytes: ...
 
 class StreamingChecksumBody(StreamingBody):

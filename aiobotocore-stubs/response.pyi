@@ -6,20 +6,21 @@ Copyright 2024 Vlad Emelianov
 
 import asyncio
 from types import TracebackType
-from typing import IO, Any, AsyncIterator
+from typing import IO, Any, AsyncIterator, TypeVar
 
 import wrapt  # type: ignore
 from aiobotocore import parsers as parsers
 from botocore.exceptions import ReadTimeoutError
 from botocore.model import OperationModel
 from requests.models import Response
-from typing_extensions import Self
+
+_R = TypeVar("_R")
 
 class AioReadTimeoutError(ReadTimeoutError, asyncio.TimeoutError): ...
 
 class StreamingBody(wrapt.ObjectProxy):  # type: ignore
     def __init__(self, raw_stream: IO[bytes], content_length: int) -> None: ...
-    async def __aenter__(self) -> Self: ...
+    async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
         self,
         exc_type: type[BaseException] | None,

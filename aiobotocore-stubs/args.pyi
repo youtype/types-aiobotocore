@@ -4,8 +4,7 @@ Type annotations for aiobotocore.args module.
 Copyright 2024 Vlad Emelianov
 """
 
-import sys
-from typing import Any
+from typing import Any, TypedDict
 
 from aiobotocore.endpoint import AioEndpoint
 from botocore.args import ClientArgsCreator
@@ -18,11 +17,6 @@ from botocore.model import ServiceModel
 from botocore.parsers import ResponseParser
 from botocore.serialize import BaseRestSerializer
 from botocore.signers import RequestSigner
-
-if sys.version_info >= (3, 12):
-    from typing import TypedDict
-else:
-    from typing_extensions import TypedDict
 
 class _GetClientArgsTypeDef(TypedDict):
     serializer: BaseRestSerializer
