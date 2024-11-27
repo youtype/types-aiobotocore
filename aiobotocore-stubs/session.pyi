@@ -5,7 +5,7 @@ Copyright 2024 Vlad Emelianov
 """
 
 from types import TracebackType
-from typing import Any
+from typing import Any, Generic, TypeVar
 
 from aiobotocore.client import AioBaseClient as AioBaseClient
 from aiobotocore.client import AioClientCreator as AioClientCreator
@@ -18,9 +18,11 @@ from botocore.model import ServiceModel
 from botocore.session import EVENT_ALIASES as EVENT_ALIASES
 from botocore.session import Session
 
-class ClientCreatorContext:
+_AioBaseClient = TypeVar("_AioBaseClient", bound=AioBaseClient)
+
+class ClientCreatorContext(Generic[_AioBaseClient]):
     def __init__(self, coro: Any) -> None: ...
-    async def __aenter__(self) -> AioBaseClient: ...
+    async def __aenter__(self) -> _AioBaseClient: ...
     async def __aexit__(
         self,
         exc_type: type[BaseException] | None,
@@ -55,7 +57,7 @@ class AioSession(Session):
         aws_secret_access_key: str | None = ...,
         aws_session_token: str | None = ...,
         config: Config | None = ...,
-    ) -> AioBaseClient: ...
+    ) -> ClientCreatorContext[AioBaseClient]: ...
     async def get_credentials(self) -> AioCredentials | None: ...  # type: ignore [override]
     def set_credentials(
         self, access_key: str, secret_key: str, token: Any | None = ...
