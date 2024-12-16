@@ -41,5 +41,5 @@ class AioBaseClient(BaseClient):
         exc_type: type[BaseException] | None,
         exc_val: BaseException | None,
         tb: TracebackType | None,
-    ) -> Any: ...
+    ) -> None: ...
     async def close(self) -> None: ...  # type: ignore [override]
