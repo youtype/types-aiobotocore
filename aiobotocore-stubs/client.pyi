@@ -18,7 +18,7 @@ _R = TypeVar("_R")
 history_recorder: HistoryRecorder
 
 class AioClientCreator(ClientCreator):
-    async def create_client(  # type: ignore [override]
+    async def create_client(  # type: ignore[override]
         self,
         service_name: str,
         region_name: str,
@@ -42,4 +42,4 @@ class AioBaseClient(BaseClient):
         exc_val: BaseException | None,
         tb: TracebackType | None,
     ) -> None: ...
-    async def close(self) -> None: ...  # type: ignore [override]
+    async def close(self) -> None: ...  # type: ignore[override]
