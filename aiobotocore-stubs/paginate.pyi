@@ -18,7 +18,7 @@ class AioPageIterator(PageIterator[_R], Generic[_R]):
     def search(self, expression: str) -> AsyncIterator[_R]: ...  # type: ignore[override]
 
 class AioPaginator(Paginator[_R], Generic[_R]):
-    PAGE_ITERATOR_CLS: type[AioPageIterator[Any]]
+    PAGE_ITERATOR_CLS: type[AioPageIterator[Any]]  # type: ignore[override]
 
 class ResultKeyIterator(Generic[_R]):
     result_key: str
