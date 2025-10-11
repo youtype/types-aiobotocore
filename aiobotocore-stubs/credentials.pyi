@@ -13,7 +13,6 @@ from aiobotocore.config import AioConfig as AioConfig
 from aiobotocore.session import AioSession
 from aiobotocore.utils import AioContainerMetadataFetcher as AioContainerMetadataFetcher
 from aiobotocore.utils import AioInstanceMetadataFetcher as AioInstanceMetadataFetcher
-from botocore.client import BaseClient
 from botocore.credentials import (
     AssumeRoleCredentialFetcher,
     AssumeRoleProvider,
@@ -34,11 +33,9 @@ from botocore.credentials import (
     ReadOnlyCredentials,
     RefreshableCredentials,
     SharedCredentialProvider,
+    SSOCredentialFetcher,
     SSOProvider,
 )
-from botocore.session import Session
-from botocore.tokens import SSOTokenProvider
-from botocore.utils import SSOTokenLoader
 
 logger: logging.Logger
 
@@ -133,20 +130,7 @@ class AioContainerProvider(ContainerProvider):
 class AioCredentialResolver(CredentialResolver):
     async def load_credentials(self) -> AioCredentials | None: ...  # type: ignore[override]
 
-class AioSSOCredentialFetcher(AioCachedCredentialFetcher):
-    def __init__(
-        self,
-        start_url: str,
-        sso_region: str,
-        role_name: str,
-        account_id: str,
-        client_creator: Callable[[Session, str], BaseClient],
-        token_loader: SSOTokenLoader | None = ...,
-        cache: dict[str, Any] | None = ...,
-        expiry_window_seconds: int | None = ...,
-        token_provider: SSOTokenProvider | None = ...,
-        sso_session_name: str | None = ...,
-    ) -> None: ...
+class AioSSOCredentialFetcher(SSOCredentialFetcher, AioCachedCredentialFetcher): ...
 
 class AioSSOProvider(SSOProvider):
     async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore[override]
