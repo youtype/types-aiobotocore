@@ -28,7 +28,9 @@ classifiers = [
 
 [tool.uv]
 config-settings = { editable-mode = "strict" }
-dev-dependencies = [
+
+[dependency-groups]
+dev = [
     "setuptools",
     "aiobotocore",
     "mypy",
