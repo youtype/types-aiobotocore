@@ -1151,7 +1151,7 @@ wheels = [
 
 [[package]]
 name = "types-aiobotocore"
-version = "2.25.2"
+version = "2.26.0"
 source = { editable = "." }
 
 [package.dev-dependencies]
