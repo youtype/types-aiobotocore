@@ -21,9 +21,6 @@ jobs:
           - "3.13"
           - "3.14"
         include:
-          - version: "3.8"
-            lint: "true"
-            # check-consistency: "true"
           - version: "3.9"
             lint: "true"
             check-consistency: "true"
@@ -50,7 +47,7 @@ jobs:
           python-version: ${{ matrix.version }}
           allow-prereleases: true
       - name: Set up uv
-        uses: astral-sh/setup-uv@v4
+        uses: astral-sh/setup-uv@v6
         with:
           version: "latest"
           enable-cache: true

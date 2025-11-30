@@ -52,9 +52,6 @@ Issues = "https://github.com/youtype/mypy_boto3_builder/issues"
 requires = ['setuptools']
 build-backend = 'setuptools.build_meta'
 
-[tool.setuptools]
-packages = ["aiobotocore-stubs"]
-
 [tool.pyright]
 include = ["aiobotocore-stubs"]
 exclude = ["**/__pycache__", "tests", "typestubs"]
