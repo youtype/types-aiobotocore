@@ -27,6 +27,8 @@ from botocore.credentials import (
     Credentials,
     EnvProvider,
     InstanceMetadataProvider,
+    LoginCredentialFetcher,
+    LoginProvider,
     OriginalEC2Provider,
     ProcessProvider,
     ProfileProviderBuilder,
@@ -134,3 +136,9 @@ class AioSSOCredentialFetcher(SSOCredentialFetcher, AioCachedCredentialFetcher):
 
 class AioSSOProvider(SSOProvider):
     async def load(self) -> AioDeferredRefreshableCredentials: ...  # type: ignore[override]
+
+class AioLoginCredentialFetcher(LoginCredentialFetcher):
+    async def refresh_credentials(self) -> None: ...  # type: ignore[override]
+
+class AioLoginProvider(LoginProvider):
+    async def load(self) -> AioRefreshableCredentials | None: ...  # type: ignore[override]

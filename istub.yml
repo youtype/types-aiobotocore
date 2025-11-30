@@ -6,16 +6,3 @@ packages:
       pyright: false
       mypy: false
       stubtest: true
-    snapshots:
-      stubtest: |-
-        error: aiobotocore.credentials.AioLoginCredentialFetcher is not present in stub
-        Stub: in file ./aiobotocore-stubs/credentials.pyi
-        MISSING
-        Runtime: in file ./aiobotocore/credentials.py:1177
-        def (session_name, token_loader, client_creator, time_fetcher=<function _local_now at 0x76edd9f8e...
-
-        error: aiobotocore.credentials.AioLoginProvider is not present in stub
-        Stub: in file ./aiobotocore-stubs/credentials.pyi
-        MISSING
-        Runtime: in file ./aiobotocore/credentials.py:1262
-        def (load_config, client_creator, profile_name, token_cache=None)
