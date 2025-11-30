@@ -63,6 +63,7 @@ async function extractVersions() {
     core.setOutput('stubs-version', '')
     const package = process.env.PACKAGE
     const stubsPackage = process.env.STUBS
+    core.notice(JSON.stringify(context.payload))
     const force = context.payload.inputs ? context.payload.inputs.force !== 'false' : false
 
     if (force) {
