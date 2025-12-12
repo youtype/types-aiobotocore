@@ -9,17 +9,17 @@ from collections.abc import AsyncIterator
 from types import TracebackType
 from typing import IO, Any, TypeVar
 
-import wrapt  # type: ignore
 from aiobotocore import parsers as parsers
 from botocore.exceptions import ReadTimeoutError
 from botocore.model import OperationModel
 from requests.models import Response
+from wrapt.proxies import ObjectProxy
 
 _R = TypeVar("_R")
 
 class AioReadTimeoutError(ReadTimeoutError, asyncio.TimeoutError): ...
 
-class StreamingBody(wrapt.ObjectProxy):  # type: ignore
+class StreamingBody(ObjectProxy):
     def __init__(self, raw_stream: IO[bytes], content_length: int) -> None: ...
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
@@ -39,7 +39,7 @@ class StreamingBody(wrapt.ObjectProxy):  # type: ignore
     def iter_lines(self, chunk_size: int = ..., keepends: bool = ...) -> AsyncIterator[bytes]: ...
     def iter_chunks(self, chunk_size: int = ...) -> AsyncIterator[bytes]: ...
 
-class HttpxStreamingBody(wrapt.ObjectProxy):
+class HttpxStreamingBody(ObjectProxy):
     async def read(self, amt: int | None = ...) -> bytes: ...
     async def __aenter__(self: _R) -> _R: ...
     async def __aexit__(
