@@ -7,8 +7,9 @@ Copyright 2025 Vlad Emelianov
 from types import TracebackType
 from typing import Any, TypeVar
 
+from aiobotocore.awsrequest import AioAWSResponse
+from botocore.awsrequest import AWSPreparedRequest
 from botocore.endpoint import MAX_POOL_CONNECTIONS as MAX_POOL_CONNECTIONS
-from requests.models import Request, Response
 
 _R = TypeVar("_R")
 
@@ -32,4 +33,4 @@ class AIOHTTPSession:
         tb: TracebackType | None,
     ) -> None: ...
     async def close(self) -> None: ...
-    async def send(self, request: Request) -> Response: ...
+    async def send(self, request: AWSPreparedRequest) -> AioAWSResponse: ...
